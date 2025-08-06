@@ -1,0 +1,264 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Nebraska Pressure Washing Brand Colors */
+  --nebraska-red: #E41C38;
+  --nebraska-bg: #F5F1E8; /* Matches logo background exactly */
+  --nebraska-black: #000000;
+  
+  /* CSS Variables for Components */
+  --background: #FAF9F6;
+  --foreground: #000000;
+  --muted: hsl(40, 15%, 92%);
+  --muted-foreground: hsl(0, 0%, 30%);
+  --popover: #FAF9F6;
+  --popover-foreground: #000000;
+  --card: #FFFFFF;
+  --card-foreground: #000000;
+  --border: hsl(0, 0%, 85%);
+  --input: hsl(0, 0%, 90%);
+  --primary: #E41C38;
+  --primary-foreground: #FFFFFF;
+  --secondary: hsl(0, 0%, 20%);
+  --secondary-foreground: #FFFFFF;
+  --accent: #E41C38;
+  --accent-foreground: #FFFFFF;
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: #FFFFFF;
+  --ring: #E41C38;
+  --radius: 0.75rem;
+  --success: hsl(142, 76%, 36%);
+  --warning: hsl(38, 92%, 50%);
+}
+
+.dark {
+  --background: hsl(240, 10%, 3.9%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(240, 3.7%, 15.9%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(240, 10%, 3.9%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(240, 10%, 3.9%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(213, 94%, 68%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(151, 83%, 47%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(0, 84%, 55%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+  --success: hsl(142, 76%, 36%);
+  --warning: hsl(38, 92%, 50%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased text-foreground;
+    font-family: 'Poppins', system-ui, sans-serif;
+    background-color: var(--nebraska-bg);
+  }
+  
+  /* Nebraska Branding Typography */
+  .brand-header {
+    font-family: 'Lobster', cursive;
+    color: var(--nebraska-red);
+  }
+  
+  .brand-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer components {
+  /* Nebraska Button Styles */
+  .btn-nebraska {
+    @apply px-8 py-3 rounded-full font-bold text-white shadow-lg transition-all duration-200;
+    background-color: var(--nebraska-red);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .btn-nebraska:hover {
+    @apply shadow-xl transform -translate-y-0.5;
+    background-color: #C71732;
+  }
+  
+  .btn-nebraska:disabled {
+    @apply opacity-50 cursor-not-allowed transform-none shadow-lg;
+  }
+  
+  /* Vintage Touches */
+  .vintage-shadow {
+    box-shadow: 0 4px 12px rgba(228, 28, 56, 0.15);
+  }
+  
+  .vintage-divider {
+    background: linear-gradient(90deg, 
+      transparent 0%, 
+      rgba(228, 28, 56, 0.3) 25%, 
+      rgba(228, 28, 56, 0.5) 50%, 
+      rgba(228, 28, 56, 0.3) 75%, 
+      transparent 100%
+    );
+    height: 1px;
+  }
+
+  .map-container {
+    touch-action: none;
+  }
+  
+  .leaflet-container {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+  
+  .step-indicator {
+    transition: all 0.3s ease;
+  }
+  
+  .step-active {
+    transform: scale(1.1);
+  }
+  
+  .quote-card {
+    animation: slideUp 0.5s ease-out;
+  }
+  
+  .loading-spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  /* Custom Leaflet Draw styles for smaller, more precise control points */
+  .leaflet-editing-icon {
+    background: #2563EB !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2) !important;
+  }
+
+  .leaflet-touch-icon {
+    background: #2563EB !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.3) !important;
+  }
+
+  /* Style for drawing vertices */
+  .leaflet-marker-icon.leaflet-div-icon.leaflet-editing-icon {
+    background: #2563EB !important;
+    border: 2px solid #ffffff !important;
+    border-radius: 50% !important;
+    width: 8px !important;
+    height: 8px !important;
+    margin-left: -4px !important;
+    margin-top: -4px !important;
+  }
+
+  /* Touch-friendly version */
+  .leaflet-marker-icon.leaflet-div-icon.leaflet-editing-icon.leaflet-touch-icon {
+    width: 12px !important;
+    height: 12px !important;
+    margin-left: -6px !important;
+    margin-top: -6px !important;
+  }
+
+  /* Hide the default leaflet draw icons background */
+  .leaflet-div-icon {
+    background: transparent !important;
+    border: none !important;
+  }
+
+  /* Distance label styles */
+  .distance-label {
+    background: rgba(37, 99, 235, 0.9);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    white-space: nowrap;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .distance-label-container {
+    background: transparent !important;
+    border: none !important;
+  }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(20px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes spin {
+  from { 
+    transform: rotate(0deg); 
+  }
+  to { 
+    transform: rotate(360deg); 
+  }
+}
+
+/* Responsive Header Styles - Desktop first approach */
+.header-logo {
+  height: 150px;
+}
+
+.header-call-text {
+  font-size: 0.875rem;
+}
+
+.header-phone {
+  font-size: 1.125rem;
+}
+
+/* Mobile override - 1024px and below */
+@media (max-width: 1024px) {
+  .header-responsive {
+    justify-content: space-between !important;
+  }
+  
+  .header-left {
+    display: none !important;
+  }
+  
+  .header-center {
+    justify-content: flex-start !important;
+    flex: none !important;
+  }
+  
+  .header-right {
+    flex: none !important;
+  }
+  
+  .header-logo {
+    height: 80px;
+  }
+  
+  .header-call-text {
+    font-size: 0.75rem;
+  }
+  
+  .header-phone {
+    font-size: 0.875rem;
+  }
+}
