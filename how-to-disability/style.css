@@ -1,0 +1,644 @@
+/*
+Theme Name: How to Disability
+Theme URI: https://howtodisability.com
+Author: How to Disability
+Author URI: https://howtodisability.com
+Description: Custom theme for How to Disability - Expert SSDI & SSI Guidance
+Version: 1.0
+License: GPL v2 or later
+Text Domain: howtodisability
+*/
+
+/* ==========================================================================
+   CSS Variables - Brand Colors
+   ========================================================================== */
+:root {
+    --primary-navy: #2C4A5E;
+    --primary-teal: #5A8FA8;
+    --light-bg: #F5F5F0;
+    --white: #FFFFFF;
+    --text-dark: #2C2C2C;
+    --text-light: #666666;
+    --accent: #E8E8D8;
+    --border-light: #E0E0E0;
+    --shadow: 0 2px 4px rgba(0,0,0,0.1);
+    --shadow-hover: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   Reset and Base Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--white);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    color: var(--primary-navy);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.1rem; }
+
+p {
+    margin-bottom: 1rem;
+    line-height: 1.8;
+}
+
+a {
+    color: var(--primary-teal);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-navy);
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.content-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+.site-header {
+    background-color: var(--white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+}
+
+.site-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.site-logo img {
+    height: 50px;
+    width: auto;
+}
+
+/* Navigation */
+.main-navigation ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navigation a {
+    color: var(--text-dark);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 0.5rem 0;
+}
+
+.main-navigation a:hover,
+.main-navigation .current-menu-item a {
+    color: var(--primary-teal);
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-navy);
+    margin-bottom: 5px;
+    transition: 0.3s;
+}
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-navy) 0%, var(--primary-teal) 100%);
+    color: var(--white);
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.hero-section h1 {
+    color: var(--white);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero-section p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.95;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--white);
+    color: var(--primary-navy);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    text-decoration: none;
+}
+
+/* ==========================================================================
+   Blog/Archive Pages
+   ========================================================================== */
+.blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.post-card {
+    background-color: var(--white);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.post-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-content {
+    padding: 1.5rem;
+}
+
+.post-meta {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.post-title a {
+    color: var(--primary-navy);
+    text-decoration: none;
+}
+
+.post-title a:hover {
+    color: var(--primary-teal);
+}
+
+.post-excerpt {
+    color: var(--text-light);
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: var(--primary-teal);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* ==========================================================================
+   Single Post/Page
+   ========================================================================== */
+.single-post-header {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 2rem;
+}
+
+.single-post-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.post-meta-single {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.entry-content {
+    font-size: 1.125rem;
+    line-height: 1.8;
+}
+
+.entry-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.entry-content blockquote {
+    border-left: 4px solid var(--primary-teal);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-light);
+}
+
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+.site-content {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 3rem;
+    margin: 3rem 0;
+}
+
+.content-area {
+    min-width: 0;
+}
+
+.widget-area {
+    background-color: var(--light-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    height: fit-content;
+}
+
+.widget {
+    margin-bottom: 2rem;
+}
+
+.widget:last-child {
+    margin-bottom: 0;
+}
+
+.widget-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-navy);
+}
+
+.widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.widget li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--accent);
+}
+
+.widget li:last-child {
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--primary-navy);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--accent);
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-teal);
+}
+
+/* ==========================================================================
+   Comments
+   ========================================================================== */
+.comments-area {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-light);
+}
+
+.comment-list {
+    list-style: none;
+    padding: 0;
+}
+
+.comment {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+}
+
+.comment-author {
+    font-weight: 600;
+    color: var(--primary-navy);
+    margin-bottom: 0.5rem;
+}
+
+.comment-meta {
+    color: var(--text-light);
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.comment-content {
+    line-height: 1.8;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.site-footer {
+    background-color: var(--primary-navy);
+    color: var(--white);
+    padding: 3rem 0 2rem;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.footer-widget h3 {
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.footer-widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-widget a {
+    color: var(--white);
+    opacity: 0.9;
+    text-decoration: none;
+}
+
+.footer-widget a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    opacity: 0.8;
+}
+
+/* ==========================================================================
+   Social Media Integration
+   ========================================================================== */
+.social-share {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.social-share-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: transform 0.3s ease;
+}
+
+.social-share-button:hover {
+    transform: translateY(-2px);
+}
+
+.share-facebook { background-color: #1877f2; color: white; }
+.share-twitter { background-color: #1da1f2; color: white; }
+.share-linkedin { background-color: #0077b5; color: white; }
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Mobile Navigation */
+    .main-navigation {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        box-shadow: var(--shadow);
+        display: none;
+    }
+    
+    .main-navigation.toggled {
+        display: block;
+    }
+    
+    .main-navigation ul {
+        flex-direction: column;
+        padding: 1rem;
+        gap: 0;
+    }
+    
+    .main-navigation li {
+        border-bottom: 1px solid var(--border-light);
+        padding: 0.5rem 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    /* Layout adjustments */
+    .site-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+.screen-reader-text {
+    clip: rect(1px, 1px, 1px, 1px);
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+}
+
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 999999;
+    text-decoration: none;
+    background-color: var(--primary-navy);
+    color: var(--white);
+    padding: 1rem;
+}
+
+.skip-link:focus {
+    left: 0;
+}
+
+/* ==========================================================================
+   WordPress Core Styles
+   ========================================================================== */
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignleft {
+    float: left;
+    margin-right: 1.5rem;
+}
+
+.alignright {
+    float: right;
+    margin-left: 1.5rem;
+}
+
+.wp-caption {
+    max-width: 100%;
+}
+
+.wp-caption-text {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-light);
+    margin-top: 0.5rem;
+}
+
+.sticky {
+    background-color: var(--light-bg);
+    padding: 1.5rem;
+    border-radius: 8px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+@media print {
+    .site-header,
+    .site-footer,
+    .widget-area,
+    .navigation,
+    .social-share,
+    .comment-form {
+        display: none;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.5;
+    }
+    
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+}
